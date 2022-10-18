@@ -61,7 +61,7 @@ async function start() {
 				var ytmp3ID = linknya.replace('https://m.youtu.be/', '').replace('https://youtu.be/', '').replace('https://www.youtube.com/', '').replace('watch?v=', '')
 				const response = await fetch(video.formats[0].url);
 				const buffer = await response.buffer();
-				await fs.writeFile(`/sdcard/yt-downloader/${video.videoDetails.videoId}.mp4`, buffer, () =>
+				await fs.writeFile(`/sdcard/yt-downloader/${video.videoDetails.title}.mp4`, buffer, () =>
 					console.log(chalk.green('finished downloading!')))
 			} else {
 				const linknya = readlineSync.question(chalk.yellow("- Masukkan link youtubenya: "))
