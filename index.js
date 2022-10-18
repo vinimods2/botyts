@@ -16,11 +16,11 @@ const patch = '/sdcard/yt-downloader'
 
 	console.log(`${chalk.white('MENU')}\n${chalk.green('1.Baixar Audio YouTube MP3 [URL]')}\n${chalk.green('2.Baixar Video Youtube MP4 [URL]')}\n${chalk.green('3.Baixar Playlist No YouTube MP3 [URL]')}\n${chalk.green('4.Baixar Playlist No YouTube MP4 [URL]')}${chalk.green('\n5.Pesquisa Musica Baixar Em MP3')}\n${chalk.green('6.Pesquisa Musica Baixar Em MP4')}\n`)
 
-  const pilihan = readlineSync.questionInt(chalk.red("Qual menu de números você deseja escolher?:"))
+  const pilihan = readlineSync.questionInt(chalk.white("Qual menu de números você deseja escolher?:"))
 	if (pilihan > 6) return console.log('Existem apenas 1-6 opções!!!')
 	try {
 	if (pilihan == '1') {
-	const linknya = readlineSync.question(chalk.red("Cole O Link Do YouTube: "))
+	const linknya = readlineSync.question(chalk.white("Cole O Link Do YouTube: "))
 	if (fs.existsSync(`${patch}`)) {
 	var ytmp3ID = linknya.replace('https://m.youtu.be/', '').replace('https://youtu.be/', '').replace('https://www.youtube.com/', '').replace('watch?v=', '')
 	console.log(chalk.white('\nO processo de download!\nA duração do processo depende da velocidade da internet\nduração que você deseja baixar\nO vídeo/áudio estará localizado na "pasta yt-downloader"'))
@@ -61,7 +61,7 @@ const patch = '/sdcard/yt-downloader'
 	await fs.writeFile(`/sdcard/yt-downloader/${video.videoDetails.videoId}.mp4`, buffer, () =>
 	console.log(chalk.green('DONWLOAD CONCLUÍDO!')))
 	} else {
-	const linknya = readlineSync.question(chalk.yellow("Cole O Link Do YouTube: "))
+	const linknya = readlineSync.question(chalk.white("Cole O Link Do YouTube: "))
 	fs.mkdir(`${patch}`)
 	console.log(chalk.white('\nO processo de download!\nA duração do processo depende da velocidade da internet\nduração que você deseja baixar\nO vídeo/áudio estará localizado na "pasta yt-downloader"'))
 	const video = await ytdl.getInfo(linknya)
@@ -90,7 +90,7 @@ const patch = '/sdcard/yt-downloader'
 	});
 	}
 	} else {
-	const linknya = readlineSync.question(chalk.yellow("Cole O Link Do YouTube: "))
+	const linknya = readlineSync.question(chalk.white("Cole O Link Do YouTube: "))
 	fs.mkdir(`${patch}`)
 	console.log(chalk.white('\nO processo de download!\nA duração do processo depende da velocidade da internet\nduração que você deseja baixar\nO vídeo/áudio estará localizado na "pasta yt-downloader"'))
 	var getID = linknya.replace('https://youtube.com/playlist?list=', '').replace('http://youtube.com/playlist?list=', '')
@@ -109,7 +109,7 @@ const patch = '/sdcard/yt-downloader'
 	}
 	}
 	} else if (pilihan == '4') {
-	const linknya = readlineSync.question(chalk.yellow("Cole O Link Do YouTube: "))
+	const linknya = readlineSync.question(chalk.white("Cole O Link Do YouTube: "))
 	if (fs.existsSync(`${patch}`)) {
 	console.log(chalk.white('\nO processo de download!\nA duração do processo depende da velocidade da internet\nduração que você deseja baixar\nO vídeo/áudio estará localizado na "pasta yt-downloader"'))
 	var getID = linknya.replace('https://youtube.com/playlist?list=', '').replace('http://youtube.com/playlist?list=', '')
@@ -122,7 +122,7 @@ const patch = '/sdcard/yt-downloader'
 	console.log(chalk.green('DONWLOAD CONCLUÍDO!')))
 	}
 	} else {
-	const linknya = readlineSync.question(chalk.yellow("Cole O Link Do YouTube: "))
+	const linknya = readlineSync.question(chalk.white("Cole O Link Do YouTube: "))
 	fs.mkdir(`${patch}`)
 	console.log(chalk.white('\nO processo de download!\nA duração do processo depende da velocidade da internet\nduração que você deseja baixar\nO vídeo/áudio estará localizado na "pasta yt-downloader"'))
 	var getID = linknya.replace('https://youtube.com/playlist?list=', '').replace('http://youtube.com/playlist?list=', '')
