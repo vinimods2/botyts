@@ -16,7 +16,7 @@ async function start() {
 	// JIKA INGIN MERUBAH TEMPAT FOLDER OUTPUT VIDEO/AUDIONYA, SILAHKAN RUBAH DIBAWAH INI
 	const patch = '/sdcard/yt-downloader'
 
-	console.log(`${chalk.white('MENU')}\n${chalk.green('1. Youtube Downloader Mp3')}\n2. Youtube Downloader Mp4\n3. Youtube Playlist Downloader Mp3\n4. Youtube Playlist Downloader Mp4\n5. Youtube Search With Query Downloader Mp3\n6. Youtube Search With Query Downloader Mp4\n`)
+	console.log(`${chalk.white('MENU')}\n${chalk.green('1.Baixar Audio YouTube MP3')}\n${chalk.green('2.Baixar Video Youtube MP4')}\n${chalk.green('3. Youtube Playlist Downloader Mp3')}\n4. Youtube Playlist Downloader Mp4\n5. Youtube Search With Query Downloader Mp3\n6. Youtube Search With Query Downloader Mp4\n`)
 
 	const pilihan = readlineSync.questionInt(chalk.yellow("- Mau pilih menu nomor berapa?: "))
 	if (pilihan > 6) return console.log('Pilihannya cuma 1 - 6 gan')
