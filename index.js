@@ -33,7 +33,7 @@ async function start() {
 				const video = await ytdl.getInfo(ytmp3ID)
 				ffmpeg(stream)
 					.audioBitrate(128)
-					.save(`/sdcard/yt-downloader/${video.videoDetails.videotitle}.mp3`)
+					.save(`/sdcard/yt-downloader/${video.videoDetails.title}.mp3`)
 					.on('end', () => {
 						console.log(chalk.green('finished downloading!'))
 					});
