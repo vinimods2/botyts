@@ -16,24 +16,24 @@ async function start() {
 	// JIKA INGIN MERUBAH TEMPAT FOLDER OUTPUT VIDEO/AUDIONYA, SILAHKAN RUBAH DIBAWAH INI
 	const patch = '/sdcard/yt-downloader'
 
-	console.log(`${chalk.white('MENU')}\n${chalk.green('1.Baixar Audio YouTube MP3')}\n${chalk.green('2.Baixar Video Youtube MP4')}\n${chalk.green('3. Youtube Playlist Downloader Mp3')}\n4. Youtube Playlist Downloader Mp4\n5. Youtube Search With Query Downloader Mp3\n6. Youtube Search With Query Downloader Mp4\n`)
+	console.log(`${chalk.white('MENU')}\n${chalk.green('1.Baixar Audio YouTube MP3 [URL]')}\n${chalk.green('2.Baixar Video Youtube MP4 [URL]')}\n${chalk.green('3.Baixar Playlist No YouTube MP3 [URL]')}\n${chalk.green('4.Baixar Playlist No YouTube MP4 [URL]')}${chalk.green('\n5.Pesquisa Musica Baixar Em MP3')}\n${chalk.green('6.Pesquisa Musica Baixar Em MP4')}\n`)
 
-	const pilihan = readlineSync.questionInt(chalk.yellow("- Mau pilih menu nomor berapa?: "))
-	if (pilihan > 6) return console.log('Pilihannya cuma 1 - 6 gan')
+	const pilihan = readlineSync.questionInt(chalk.red("Qual menu de números você deseja escolher?:"))
+	if (pilihan > 6) return console.log('Existem apenas 1-6 opções!!!')
 
 	try {
 		if (pilihan == '1') {
-			const linknya = readlineSync.question(chalk.yellow("- Masukkan link youtubenya: "))
+			const linknya = readlineSync.question(chalk.red("Entre no link do youtube: "))
 			if (fs.existsSync(`${patch}`)) {
 				var ytmp3ID = linknya.replace('https://m.youtu.be/', '').replace('https://youtu.be/', '').replace('https://www.youtube.com/', '').replace('watch?v=', '')
-				console.log(chalk.yellow('\nLagi proses download...\n\nlama proses tergantung kecepatan internet dan durasi yang kamu ingin download\n\nNanti letak video/audionya ada di folder "yt-downloader"'))
+				console.log(chalk.white('\nO processo de download!\nA duração do processo depende da velocidade da internet e da duração que você deseja baixar\nO vídeo/áudio estará localizado na "pasta yt-downloader"'))
 				let stream = await ytdl(ytmp3ID, {
 					quality: 'highestaudio'
 				});
 				const video = await ytdl.getInfo(ytmp3ID)
 				ffmpeg(stream)
 					.audioBitrate(128)
-					.save(`/sdcard/yt-downloader/${video.videoDetails.videoId}.mp3`)
+					.save(`/sdcard/yt-downloader/${video.videoDetails.videoname}.mp3`)
 					.on('end', () => {
 						console.log(chalk.green('finished downloading!'))
 					});
