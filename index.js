@@ -139,7 +139,7 @@ async function start() {
 				}
 			}
 		} else if (pilihan == '5') {
-			const linknya = readlineSync.question(chalk.white("Cole O Link Do YouTube: "))
+			const linknya = readlineSync.question(chalk.white("Pesquise O Nome Da Música: "))
 			if (fs.existsSync(`${patch}`)) {
 				console.log(chalk.white('\nO processo de download!\nA duração do processo depende da velocidade da internet\nduração que você deseja baixar\nO vídeo/áudio estará localizado na "pasta yt-downloader"'))
 			const playOptions = {
@@ -165,7 +165,7 @@ async function start() {
 						console.log(chalk.green('DOWNLOAD CONCLUÍDO!'))
 					});
 			} else {
-				const linknya = readlineSync.question(chalk.yellow("Cole O Link Do YouTube: "))
+				const linknya = readlineSync.question(chalk.yellow("Pesquise O Nome Da Música: "))
 				fs.mkdir(`${patch}`)
 				console.log(chalk.white('\nO processo de download!\nA duração do processo depende da velocidade da internet\nduração que você deseja baixar\nO vídeo/áudio estará localizado na "pasta yt-downloader"'))
 			const playOptions = {
@@ -192,7 +192,7 @@ async function start() {
 					});
 			}
 		} else if (pilihan == '6') {
-			const linknya = readlineSync.question(chalk.yellow("Cole O Link Do YouTube: "))
+			const linknya = readlineSync.question(chalk.yellow("Pesquise O Nome Da Música: "))
 			if (fs.existsSync(`${patch}`)) {
 				console.log(chalk.white('\nO processo de download!\nA duração do processo depende da velocidade da internet\nduração que você deseja baixar\nO vídeo/áudio estará localizado na "pasta yt-downloader"'))
 			const playOptions = {
@@ -213,7 +213,7 @@ async function start() {
 				await fs.writeFile(`/sdcard/yt-downloader/${video.videoDetails.videoId}.mp4`, buffer, () =>
 					console.log(chalk.green('DOWNLOAD CONCLUÍDO!')))
 			} else {
-				const linknya = readlineSync.question(chalk.yellow("Cole O Link Do YouTube: "))
+				const linknya = readlineSync.question(chalk.yellow("Pesquise O Nome Da Música: "))
 				fs.mkdir(`${patch}`)
 				console.log(chalk.white('\nO processo de download!\nA duração do processo depende da velocidade da internet\nduração que você deseja baixar\nO vídeo/áudio estará localizado na "pasta yt-downloader"'))
 			const playOptions = {
