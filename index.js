@@ -23,25 +23,10 @@ async function start() {
 
 	try {
 		if (pilihan == '1') {
-			const linknya = readlineSync.question(chalk.red("Entre no link do youtube: "))
+			const linknya = readlineSync.question(chalk.red("Cole O Link Do YouTube: "))
 			if (fs.existsSync(`${patch}`)) {
 				var ytmp3ID = linknya.replace('https://m.youtu.be/', '').replace('https://youtu.be/', '').replace('https://www.youtube.com/', '').replace('watch?v=', '')
-				console.log(chalk.white('\nO processo de download!\nA duração do processo depende da velocidade da internet e da duração que você deseja baixar\nO vídeo/áudio estará localizado na "pasta yt-downloader"'))
-				let stream = await ytdl(ytmp3ID, {
-					quality: 'highestaudio'
-				});
-				const video = await ytdl.getInfo(ytmp3ID)
-				ffmpeg(stream)
-					.audioBitrate(128)
-					.save(`/sdcard/yt-downloader/${video.videoDetails.title}.mp3`)
-					.on('end', () => {
-						console.log(chalk.green('finished downloading!'))
-					});
-			} else {
-				const linknya = readlineSync.question(chalk.yellow("- Masukkan link youtubenya: "))
-				fs.mkdir(`${patch}`)
-				var ytmp3ID = linknya.replace('https://m.youtu.be/', '').replace('https://youtu.be/', '').replace('https://www.youtube.com/', '').replace('watch?v=', '')
-				console.log(chalk.yellow('\nLagi proses download...\n\nlama proses tergantung kecepatan internet dan durasi yang kamu ingin download\n\nNanti letak video/audionya ada di folder "yt-downloader"'))
+				console.log(chalk.white('\nO processo de download!\nA duração do processo depende da velocidade da internet\nduração que você deseja baixar\nO vídeo/áudio estará localizado na "pasta yt-downloader"'))
 				let stream = await ytdl(ytmp3ID, {
 					quality: 'highestaudio'
 				});
@@ -50,7 +35,22 @@ async function start() {
 					.audioBitrate(128)
 					.save(`/sdcard/yt-downloader/${video.videoDetails.videoId}.mp3`)
 					.on('end', () => {
-						console.log(chalk.green('finished downloading!'))
+						console.log(chalk.green('DOWNLOAD CONCLUÍDO!'))
+					});
+			} else {
+				const linknya = readlineSync.question(chalk.red("Cole O Link Do YouTube: "))
+				fs.mkdir(`${patch}`)
+				var ytmp3ID = linknya.replace('https://m.youtu.be/', '').replace('https://youtu.be/', '').replace('https://www.youtube.com/', '').replace('watch?v=', '')
+				console.log(chalk.white('\nO processo de download!\nA duração do processo depende da velocidade da internet\nduração que você deseja baixar\nO vídeo/áudio estará localizado na "pasta yt-downloader"'))
+				let stream = await ytdl(ytmp3ID, {
+					quality: 'highestaudio'
+				});
+				const video = await ytdl.getInfo(ytmp3ID)
+				ffmpeg(stream)
+					.audioBitrate(128)
+					.save(`/sdcard/yt-downloader/${video.videoDetails.videoId}.mp3`)
+					.on('end', () => {
+						console.log(chalk.green('DOWNLOAD CONCLUÍDO!'))
 					});
 			}
 		} else if (pilihan == '2') {
@@ -61,7 +61,7 @@ async function start() {
 				var ytmp3ID = linknya.replace('https://m.youtu.be/', '').replace('https://youtu.be/', '').replace('https://www.youtube.com/', '').replace('watch?v=', '')
 				const response = await fetch(video.formats[0].url);
 				const buffer = await response.buffer();
-				await fs.writeFile(`/sdcard/yt-downloader/${video.videoDetails.title}.mp4`, buffer, () =>
+				await fs.writeFile(`/sdcard/yt-downloader/${video.videoDetails.videoId}.mp4`, buffer, () =>
 					console.log(chalk.green('finished downloading!')))
 			} else {
 				const linknya = readlineSync.question(chalk.yellow("- Masukkan link youtubenya: "))
