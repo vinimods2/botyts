@@ -17,7 +17,7 @@ async function start() {
 	const patch = '/sdcard/yt-downloader'
 
 	console.log(chalk.cyan(`${chalk.red('- - SANSEKAI - -')}\nYoutube mp4/mp3 Downloader\nCreated by Yusril\nFb : facebook.com/nikkixploit\n${chalk.red('- - SANSEKAI - -')}\n`))
-	console.log(`${chalk.cyan('MENU')}\n1. Youtube Downloader Mp3\n2. Youtube Downloader Mp4\n3. Youtube Playlist Downloader Mp3\n4. Youtube Playlist Downloader Mp4\n5. Youtube Search With Query Downloader Mp3\n6. Youtube Search With Query Downloader Mp4\n`)
+	console.log(`${chalk.cyan('MENU')}\n${chalk.red('- - SANSEKAI - -')}1. Youtube Downloader Mp3\n2. Youtube Downloader Mp4\n3. Youtube Playlist Downloader Mp3\n4. Youtube Playlist Downloader Mp4\n5. Youtube Search With Query Downloader Mp3\n6. Youtube Search With Query Downloader Mp4\n`)
 
 	const pilihan = readlineSync.questionInt(chalk.yellow("- Mau pilih menu nomor berapa?: "))
 	if (pilihan > 6) return console.log('Pilihannya cuma 1 - 6 gan')
