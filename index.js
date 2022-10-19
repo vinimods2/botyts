@@ -69,6 +69,7 @@ const patch = '/sdcard/yt-downloader'
 	const response = await fetch(video.formats[0].url);
 	const buffer = await response.buffer();
 	await fs.writeFile(`/sdcard/yt-downloader/${video.videoDetails.videoId}.mp4`, buffer, () =>
+	.on('end', () => {
 	console.log(chalk.green('DONWLOAD CONCLUÍDO!')))
 	}
 	} else if (pilihan == '3') {
@@ -119,6 +120,7 @@ const patch = '/sdcard/yt-downloader'
 	const response = await fetch(video.formats[0].url);
 	const buffer = await response.buffer();
 	await fs.writeFile(`/sdcard/yt-downloader/${video.videoDetails.videoId}.mp4`, buffer, () =>
+	.on('end', () => {
 	console.log(chalk.green('DONWLOAD CONCLUÍDO!')))
 	}
 	} else {
@@ -132,6 +134,7 @@ const patch = '/sdcard/yt-downloader'
 	const response = await fetch(video.formats[0].url);
 	const buffer = await response.buffer();
 	await fs.writeFile(`/sdcard/yt-downloader/${video.videoDetails.videoId}.mp4`, buffer, () =>
+	.on('end', () => {
 	console.log(chalk.green('DOWNLOAD CONCLUÍDO!')))
 	}
 	}
@@ -229,6 +232,7 @@ const patch = '/sdcard/yt-downloader'
 	const response = await fetch(video.formats[0].url);
 	const buffer = await response.buffer();
 	await fs.writeFile(`/sdcard/yt-downloader/${video.videoDetails.videoId}.mp4`, buffer, () =>
+	.on('end', () => {
 	console.log(chalk.green('DOWNLOAD CONCLUÍDO!')))
 	}
 	} else {
