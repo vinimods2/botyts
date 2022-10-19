@@ -91,6 +91,7 @@ const patch = '/sdcard/yt-downloader'
 	.save(`/sdcard/yt-downloader/${video.videoDetails.videoId}.mp3`)
 	.on('end', () => {
 	console.log(chalk.green(`${video.videoDetails.title} DOWNLOAD CONCLUÍDO!`))
+	process.exit();
 	});
 	}
 	} else {
@@ -109,6 +110,7 @@ const patch = '/sdcard/yt-downloader'
 	.save(`/sdcard/yt-downloader/${video.videoDetails.videoId}.mp3`)
 	.on('end', () => {
 	console.log(chalk.green(`${video.videoDetails.title} DOWNLOAD CONCLUÍDO!`))
+	process.exit();
 	});
 	}
 	}
@@ -124,6 +126,7 @@ const patch = '/sdcard/yt-downloader'
 	const buffer = await response.buffer();
 	await fs.writeFile(`/sdcard/yt-downloader/${video.videoDetails.videoId}.mp4`, buffer, () =>
 	console.log(chalk.green(`${video.videoDetails.title} DOWNLOAD CONCLUÍDO!`)))
+	process.exit();
 	}
 	} else {
 	const linknya = readlineSync.question(chalk.white("Cole O Link Do YouTube: "))
@@ -137,6 +140,7 @@ const patch = '/sdcard/yt-downloader'
 	const buffer = await response.buffer();
 	await fs.writeFile(`/sdcard/yt-downloader/${video.videoDetails.videoId}.mp4`, buffer, () =>
 	console.log(chalk.green(`${video.videoDetails.title} DOWNLOAD CONCLUÍDO!`)))
+	process.exit();
 	}
 	}
 	} else if (pilihan == '5') {
@@ -164,6 +168,7 @@ const patch = '/sdcard/yt-downloader'
 	.save(`/sdcard/yt-downloader/${playInfo.videoDetails.videoId}.mp3`)
 	.on('end', () => {
 	console.log(chalk.green(`${video.videoDetails.title} DOWNLOAD CONCLUÍDO!`))
+	process.exit();
 	});
 	} else {
 	const linknya = readlineSync.question(chalk.white("Pesquise O Nome Da Música: "))
@@ -190,6 +195,7 @@ const patch = '/sdcard/yt-downloader'
 	.save(`/sdcard/yt-downloader/${playInfo.videoDetails.videoId}.mp3`)
 	.on('end', () => {
 	console.log(chalk.green(`${video.videoDetails.title} DOWNLOAD CONCLUÍDO!`))
+	process.exit();
 	});
 	}
 	} else if (pilihan == '6') {
@@ -213,6 +219,7 @@ const patch = '/sdcard/yt-downloader'
 	const buffer = await response.buffer();
 	await fs.writeFile(`/sdcard/yt-downloader/${video.videoDetails.videoId}.mp4`, buffer, () =>
 	console.log(chalk.green(`${video.videoDetails.title} DOWNLOAD CONCLUÍDO!`)))
+	process.exit();
 	} else {
 	const linknya = readlineSync.question(chalk.yellow("Pesquise O Nome Da Música: "))
 	fs.mkdir(`${patch}`)
@@ -234,6 +241,7 @@ const patch = '/sdcard/yt-downloader'
 	const buffer = await response.buffer();
 	await fs.writeFile(`/sdcard/yt-downloader/${video.videoDetails.videoId}.mp4`, buffer, () =>
 	console.log(chalk.green(`${video.videoDetails.title} DOWNLOAD CONCLUÍDO!`)))
+	process.exit();
 	}
 	} else {
 	console.log(chalk.white('A escolha é apenas 1 - 6'))
