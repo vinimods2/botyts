@@ -33,6 +33,7 @@ const patch = '/sdcard/yt-downloader'
 	.save(`/sdcard/yt-downloader/${video.videoDetails.videoId}.mp3`)
 	.on('end', () => {
 	console.log(chalk.green(`${video.videoDetails.title} DOWNLOAD CONCLUÍDO!`))
+	process.exit();
 	});
 	} else {
 	const linknya = readlineSync.question(chalk.white("Cole O Link Do YouTube: "))
@@ -48,6 +49,7 @@ const patch = '/sdcard/yt-downloader'
 	.save(`/sdcard/yt-downloader/${video.videoDetails.videoId}.mp3`)
 	.on('end', () => {
 	console.log(chalk.green(`${video.videoDetails.title} DOWNLOAD CONCLUÍDO!`))
+	process.exit();
 	});
 	}
 	} else if (pilihan == '2') {
@@ -60,6 +62,7 @@ const patch = '/sdcard/yt-downloader'
 	const buffer = await response.buffer();
 	await fs.writeFile(`/sdcard/yt-downloader/${video.videoDetails.videoId}.mp4`, buffer, () =>
 	console.log(chalk.green(`${video.videoDetails.title} DOWNLOAD CONCLUÍDO!`)))
+	process.exit();
 	} else {
 	const linknya = readlineSync.question(chalk.white("Cole O Link Do YouTube: "))
 	fs.mkdir(`${patch}`)
@@ -70,6 +73,7 @@ const patch = '/sdcard/yt-downloader'
 	const buffer = await response.buffer();
 	await fs.writeFile(`/sdcard/yt-downloader/${video.videoDetails.videoId}.mp4`, buffer, () =>
 	console.log(chalk.green(`${video.videoDetails.title} DOWNLOAD CONCLUÍDO!`)))
+	process.exit();
 	}
 	} else if (pilihan == '3') {
 	const linknya = readlineSync.question(chalk.white("Cole O Link Do YouTube: "))
@@ -240,13 +244,5 @@ const patch = '/sdcard/yt-downloader'
 	console.log(err)
 	}
 }
-
-let file = require.resolve(__filename)
-fs.watchFile(file, () => {
-	fs.unwatchFile(file)
-	console.log(chalk.redBright(`Update ${__filename}`))
-	delete require.cache[file]
-	require(file)
-})
 
 start()
