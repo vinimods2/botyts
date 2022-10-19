@@ -167,7 +167,7 @@ const patch = '/sdcard/yt-downloader'
 	.audioBitrate(128)
 	.save(`/sdcard/yt-downloader/${playInfo.videoDetails.videoId}.mp3`)
 	.on('end', () => {
-	console.log(chalk.green(`${video.videoDetails.title} DOWNLOAD CONCLUÍDO!`)))
+	console.log(chalk.green(`${video.videoDetails.title} DOWNLOAD CONCLUÍDO!`))
 	process.exit();
 	});
 	} else {
