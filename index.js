@@ -92,7 +92,6 @@ const patch = '/sdcard/yt-downloader'
 	.on('end', () => {
 	console.log(chalk.green(`${video.videoDetails.title} DOWNLOAD CONCLUÍDO!`))
 	});
-	function start();
 	}
 	} else {
 	const linknya = readlineSync.question(chalk.white("Cole O Link Do YouTube: "))
@@ -111,7 +110,6 @@ const patch = '/sdcard/yt-downloader'
 	.on('end', () => {
 	console.log(chalk.green(`${video.videoDetails.title} DOWNLOAD CONCLUÍDO!`))
 	});
-	function start();
 	}
 	}
 	} else if (pilihan == '4') {
