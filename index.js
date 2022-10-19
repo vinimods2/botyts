@@ -14,7 +14,7 @@ const youtube = new Client()
 async function start() {
 const patch = '/sdcard/yt-downloader'
 
-	console.log(`${chalk.white('MENU')}\n${chalk.green('1.Baixar Audio YouTube MP3 [URL]')}\n${chalk.green('2.Baixar Video Youtube MP4 [URL]')}\n${chalk.green('3.Baixar Playlist No YouTube MP3 [URL]')}\n${chalk.green('4.Baixar Playlist No YouTube MP4 [URL]')}${chalk.green('\n5.Pesquisa Musica Baixar Em MP3')}\n${chalk.green('6.Pesquisa Musica Baixar Em MP4')}\n`)
+	console.log(`${chalk.white('MENU YOUTUBE DOWNLOAD')}\n${chalk.green('1.Baixar Audio YouTube MP3 [URL]')}\n${chalk.green('2.Baixar Video Youtube MP4 [URL]')}\n${chalk.green('3.Baixar Playlist No YouTube MP3 [URL]')}\n${chalk.green('4.Baixar Playlist No YouTube MP4 [URL]')}${chalk.green('\n5.Pesquisa Musica Baixar Em MP3')}\n${chalk.green('6.Pesquisa Musica Baixar Em MP4')}\n`)
 
   const pilihan = readlineSync.questionInt(chalk.white("Qual menu de números você deseja escolher?:"))
 	if (pilihan > 6) return console.log('Existem apenas 1-6 opções!!!')
