@@ -167,7 +167,7 @@ const patch = '/sdcard/yt-downloader'
 	.audioBitrate(128)
 	.save(`/sdcard/yt-downloader/${playInfo.videoDetails.videoId}.mp3`)
 	.on('end', () => {
-	console.log(chalk.green(`${video.videoDetails.title} DOWNLOAD CONCLUÍDO!`))
+	console.log(chalk.green(`DOWNLOAD CONCLUÍDO!`))
 	process.exit();
 	});
 	} else {
@@ -194,7 +194,7 @@ const patch = '/sdcard/yt-downloader'
 	.audioBitrate(128)
 	.save(`/sdcard/yt-downloader/${playInfo.videoDetails.videoId}.mp3`)
 	.on('end', () => {
-	console.log(chalk.green(`${video.videoDetails.title} DOWNLOAD CONCLUÍDO!`))
+	console.log(chalk.green(`DOWNLOAD CONCLUÍDO!`))
 	process.exit();
 	});
 	}
@@ -218,7 +218,7 @@ const patch = '/sdcard/yt-downloader'
 	const response = await fetch(video.formats[0].url);
 	const buffer = await response.buffer();
 	await fs.writeFile(`/sdcard/yt-downloader/${video.videoDetails.videoId}.mp4`, buffer, () =>
-	console.log(chalk.green(`${video.videoDetails.title} DOWNLOAD CONCLUÍDO!`)))
+	console.log(chalk.green(`DOWNLOAD CONCLUÍDO!`)))
 	process.exit();
 	} else {
 	const linknya = readlineSync.question(chalk.yellow("Pesquise O Nome Da Música: "))
