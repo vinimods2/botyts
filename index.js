@@ -87,7 +87,6 @@ const patch = '/sdcard/yt-downloader'
 	.save(`/sdcard/yt-downloader/${video.videoDetails.videoId}.mp3`)
 	.on('end', () => {
 	console.log(chalk.green(`${video.videoDetails.title} DOWNLOAD CONCLUÍDO!`))
-	function start();
 	});
 	}
 	} else {
@@ -106,7 +105,6 @@ const patch = '/sdcard/yt-downloader'
 	.save(`/sdcard/yt-downloader/${video.videoDetails.videoId}.mp3`)
 	.on('end', () => {
 	console.log(chalk.green(`${video.videoDetails.title} DOWNLOAD CONCLUÍDO!`))
-	function start();
 	});
 	}
 	}
