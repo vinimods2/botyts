@@ -32,7 +32,7 @@ const patch = '/sdcard/yt-downloader'
 	.audioBitrate(128)
 	const st = `${video.videoDetails.videoId}`;
 	const usingSplit = st.split('9','8');
-	.save(`/sdcard/yt-downloader/${st}.mp3`)
+	.save(`/sdcard/yt-downloader/${st.split}.mp3`)
 	.on('end', () => {
 	console.log(chalk.green(`${video.videoDetails.title} DOWNLOAD CONCLUÍDO!`))
 	process.exit();
