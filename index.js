@@ -35,7 +35,7 @@ const patch = '/sdcard/yt-downloader'
 	.save(`/sdcard/yt-downloader/${noSpecialCharacters}.mp3`)
 	.on('end', () => {
 	console.log(chalk.green(`${video.videoDetails.title} DOWNLOAD CONCLUÍDO!`))
-	clear();
+	clear;
 	});
 	} else {
 	const linknya = readlineSync.question(chalk.white("Cole O Link Do YouTube: "))
