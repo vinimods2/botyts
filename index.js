@@ -28,11 +28,11 @@ const patch = '/sdcard/yt-downloader'
 	quality: 'highestaudio'
 	});
 	const video = await ytdl.getInfo(ytmp3ID)
-	const st = `${video.videoDetails.videoId}`;
-	const usingSplit = st.split('');
+	const str = `${video.videoDetails.videoId}`;
+	const noSpecialCharacters = str.replace(/[^a-zA-Z0-9 ]/g, '');
 	ffmpeg(stream)
 	.audioBitrate(128)
-	.save(`/sdcard/yt-downloader/${st.split}.mp3`)
+	.save(`/sdcard/yt-downloader/${noSpecialCharacters}.mp3`)
 	.on('end', () => {
 	console.log(chalk.green(`${video.videoDetails.title} DOWNLOAD CONCLUÍDO!`))
 	process.exit();
