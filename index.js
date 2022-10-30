@@ -28,7 +28,7 @@ const patch = '/sdcard/yt-downloader'
 	quality: 'highestaudio'
 	});
 	const video = await ytdl.getInfo(ytmp3ID)
-	const str = `${video.videoDetails.videoId}`;
+	const str = `${video.videoDetails.title}`;
 	const noSpecialCharacters = str.replace(/[^a-zA-Z0-9 ]/g, '');
 	ffmpeg(stream)
 	.audioBitrate(128)
