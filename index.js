@@ -29,13 +29,13 @@ const patch = '/sdcard/yt-downloader'
 	});
 	const video = await ytdl.getInfo(ytmp3ID)
 	const str = `${video.videoDetails.title}`;
-	const noSpecialCharacters = str.replace(/[a-zA-Z0-9 ]/g, '');
+	const noSpecialCharacters = str.replace(/[^a-zA-Z0-9 ]/g, '');
 	ffmpeg(stream)
 	.audioBitrate(128)
 	.save(`/sdcard/yt-downloader/${noSpecialCharacters}.mp3`)
 	.on('end', () => {
 	console.log(chalk.green(`${video.videoDetails.title} DOWNLOAD CONCLUÍDO!`))
-	process.exit();
+	clear();
 	});
 	} else {
 	const linknya = readlineSync.question(chalk.white("Cole O Link Do YouTube: "))
@@ -46,12 +46,14 @@ const patch = '/sdcard/yt-downloader'
 	quality: 'highestaudio'
 	});
 	const video = await ytdl.getInfo(ytmp3ID)
+	const str = `${video.videoDetails.title}`;
+	const noSpecialCharacters = str.replace(/[^a-zA-Z0-9 ]/g, '');
 	ffmpeg(stream)
 	.audioBitrate(128)
-	.save(`/sdcard/yt-downloader/${video.videoDetails.videoId}.mp3`)
+	.save(`/sdcard/yt-downloader/${noSpecialCharacters}.mp3`)
 	.on('end', () => {
 	console.log(chalk.green(`${video.videoDetails.title} DOWNLOAD CONCLUÍDO!`))
-	process.exit();
+	clear();
 	});
 	}
 	} else if (pilihan == '2') {
@@ -62,9 +64,11 @@ const patch = '/sdcard/yt-downloader'
 	var ytmp3ID = linknya.replace('https://m.youtu.be/', '').replace('https://youtu.be/', '').replace('https://www.youtube.com/', '').replace('watch?v=', '')
 	const response = await fetch(video.formats[0].url);
 	const buffer = await response.buffer();
-	await fs.writeFile(`/sdcard/yt-downloader/${video.videoDetails.videoId}.mp4`, buffer, () =>
+	const str = `${video.videoDetails.title}`;
+	const noSpecialCharacters = str.replace(/[^a-zA-Z0-9 ]/g, '');
+	await fs.writeFile(`/sdcard/yt-downloader/${noSpecialCharacters}.mp4`, buffer, () =>
 	console.log(chalk.green(`${video.videoDetails.title} DOWNLOAD CONCLUÍDO!`)))
-	process.exit();
+	clear();
 	} else {
 	const linknya = readlineSync.question(chalk.white("Cole O Link Do YouTube: "))
 	fs.mkdir(`${patch}`)
@@ -75,7 +79,7 @@ const patch = '/sdcard/yt-downloader'
 	const buffer = await response.buffer();
 	await fs.writeFile(`/sdcard/yt-downloader/${video.videoDetails.videoId}.mp4`, buffer, () =>
 	console.log(chalk.green(`${video.videoDetails.title} DOWNLOAD CONCLUÍDO!`)))
-	process.exit();
+	clear();
 	}
 	} else if (pilihan == '3') {
 	const linknya = readlineSync.question(chalk.white("Cole O Link Do YouTube: "))
