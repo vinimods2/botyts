@@ -14,7 +14,7 @@ const youtube = new Client()
 async function start() {
 const patch = '/sdcard/yt-downloader'
 
-	console.log(`${chalk.green('┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓')}\n${chalk.green('┃')}${chalk.white('MENU YOUTUBE DOWNLOAD')}\n${chalk.green('┃')}${chalk.green('1.')}${chalk.white('Baixar Audio YouTube MP3')}\n${chalk.green('┃')}${chalk.green('1.')}${chalk.white('Baixar Audio YouTube MP3')}`)
+	console.log(`${chalk.green('┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓')}\n${chalk.green('┃')}${chalk.white('MENU YOUTUBE DOWNLOAD')}\n${chalk.green('┃')}${chalk.green('1.')}${chalk.white('Baixar Audio YouTube MP3')}\n${chalk.green('┃')}${chalk.green('1.')}${chalk.white('Baixar Audio YouTube MP3')}\n${chalk.green('┃')}${chalk.green('1.')}${chalk.white('Baixar Audio YouTube MP3')}\n${chalk.green('┃')}${chalk.green('1.')}${chalk.white('Baixar Audio YouTube MP3')}\n${chalk.green('┃')}${chalk.green('1.')}${chalk.white('Baixar Audio YouTube MP3')}\n${chalk.green('┃')}${chalk.green('1.')}${chalk.white('Baixar Audio YouTube MP3')}\n${chalk.green('┃')}${chalk.green('1.')}${chalk.white('Baixar Audio YouTube MP3')}\n${chalk.green('┃')}${chalk.green('1.')}${chalk.white('Baixar Audio YouTube MP3')}\n${chalk.green('┃')}${chalk.green('1.')}${chalk.white('Baixar Audio YouTube MP3')}\n${chalk.green('┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛')}`)
 	const pilihan = readlineSync.questionInt(chalk.white("Qual menu de números você deseja escolher?:"))
 	if (pilihan > 6) return console.log('Existem apenas 1-6 opções!!!')
 	try {
