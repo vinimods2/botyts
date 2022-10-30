@@ -14,8 +14,7 @@ const youtube = new Client()
 async function start() {
 const patch = '/sdcard/yt-downloader'
 
-	console.log(`${chalk.green('┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓')}\n${chalk.green('┃')}${chalk.white('MENU YOUTUBE DOWNLOAD')}`)
-	//\n${chalk.green('┃')}${chalk.green('1.')}${chalk.white('Baixar Audio YouTube MP3')}${chalk.green('[URL]')}\n))
+	console.log(`${chalk.green('┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓')}\n${chalk.green('┃')}${chalk.white('MENU YOUTUBE DOWNLOAD')}\n${chalk.green('┃')}${chalk.green('1.')}${chalk.white('Baixar Audio YouTube MP3')}${chalk.green('[URL]')}`)	//\n${chalk.green('┃')}${chalk.green('1.')}${chalk.white('Baixar Audio YouTube MP3')}${chalk.green('[URL]')}\n))
 	//${chalk.green('┃')}${chalk.green('2.')}${chalk.white('Baixar Video Youtube MP4')}${chalk.green('[URL]')}\n${chalk.green('┃')}${chalk.green('3.')}${chalk.white('Baixar Playlist No YouTube MP3')}${chalk.green('[URL]')}\n${chalk.green('┃')}${chalk.green('4.')}${chalk.white('Baixar Playlist No YouTube MP4')}${chalk.green('[URL]')}\n${chalk.green('┃')}${chalk.green('5.')}${chalk.white('Pesquisa Musica Baixar Em')}${chalk.green'[MP3]')}\n${chalk.green('┃')}${chalk.green('6.')}${chalk.white('Pesquisa Musica Baixar Em')}${chalk.green('[MP4]')}\n${chalk.green('┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛')}\n`))
   const pilihan = readlineSync.questionInt(chalk.white("Qual menu de números você deseja escolher?:"))
 	if (pilihan > 6) return console.log('Existem apenas 1-6 opções!!!')
