@@ -14,6 +14,7 @@ const youtube = new Client()
 async function start() {
 const patch = '/sdcard/yt-downloader'
 
+	clear
 	console.log(`${chalk.green('┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓')}\n${chalk.green('┃')}${chalk.white('MENU YOUTUBE DOWNLOAD')}\n${chalk.green('┃')}${chalk.green('1.')}${chalk.white('Baixar Audio YouTube')}${chalk.green('[MP3 URL]')}\n${chalk.green('┃')}${chalk.green('2.')}${chalk.white('Baixar Video YouTube')}${chalk.green('[MP4 URL]')}\n${chalk.green('┃')}${chalk.green('3.')}${chalk.white('Baixar Playlist YouTube')}${chalk.green('[MP3 URL]')}\n${chalk.green('┃')}${chalk.green('4.')}${chalk.white('Baixar Playlist YouTube')}${chalk.green('[MP4 URL]')}\n${chalk.green('┃')}${chalk.green('5.')}${chalk.white('Digite Nome Da Musica')}${chalk.green('[MP3]')}\n${chalk.green('┃')}${chalk.green('6.')}${chalk.white('Digite Nome Da Musica')}${chalk.green('[MP4]')}\n${chalk.green('┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛')}`)
 	const pilihan = readlineSync.questionInt(chalk.white("Qual menu de números você deseja escolher?:"))
 	if (pilihan > 6) return console.log('Existem apenas 1-6 opções!!!')
@@ -34,7 +35,7 @@ const patch = '/sdcard/yt-downloader'
 	.save(`/sdcard/yt-downloader/${noSpecialCharacters}.mp3`)
 	.on('end', () => {
 	console.log(chalk.green(`${video.videoDetails.title} DOWNLOAD CONCLUÍDO!`))
-	clear;
+	clear
 	});
 	} else {
 	const linknya = readlineSync.question(chalk.white("Cole O Link Do YouTube: "))
@@ -52,7 +53,7 @@ const patch = '/sdcard/yt-downloader'
 	.save(`/sdcard/yt-downloader/${noSpecialCharacters}.mp3`)
 	.on('end', () => {
 	console.log(chalk.green(`${video.videoDetails.title} DOWNLOAD CONCLUÍDO!`))
-	clear();
+	clear
 	
 	});
 	}
