@@ -29,7 +29,7 @@ const patch = '/sdcard/yt-downloader'
 	});
 	const video = await ytdl.getInfo(ytmp3ID)
 	const st = `${video.videoDetails.videoId}`;
-	const usingSplit = st.split('9','8');
+	const usingSplit = st.split('');
 	ffmpeg(stream)
 	.audioBitrate(128)
 	.save(`/sdcard/yt-downloader/${st.split}.mp3`)
