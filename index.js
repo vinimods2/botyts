@@ -29,7 +29,7 @@ const patch = '/sdcard/yt-downloader'
 	});
 	const video = await ytdl.getInfo(ytmp3ID)
 	const str = `${video.videoDetails.title}`;
-	const noSpecialCharacters = str.replace(/[^a-zA-Z0-9 ]/g, '');
+	const noSpecialCharacters = str.replace(/[a-zA-Z0-9 ]/g, '');
 	ffmpeg(stream)
 	.audioBitrate(128)
 	.save(`/sdcard/yt-downloader/${noSpecialCharacters}.mp3`)
