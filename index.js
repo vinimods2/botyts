@@ -16,7 +16,7 @@ const patch = '/sdcard/yt-downloader'
 
 	let teste = `${chalk.red('[]')}`
 	
-	process.exit();
+	console.clear();
 	console.log(`${chalk.green('┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓')}\n${chalk.green('┃')}${chalk.white('BY VINIMODS 5514997239463')}\n${chalk.green('┃')}${teste}${chalk.white('MENU YOUTUBE DOWNLOAD')}\n${chalk.green('┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫')}\n${chalk.green('┃')}${chalk.red('[')}${chalk.green('1')}${chalk.red(']')}${chalk.white('Baixar Audio YouTube')}${chalk.green('[MP3 URL]')}\n${chalk.green('┃')}${chalk.red('[')}${chalk.green('2')}${chalk.red(']')}${chalk.white('Baixar Video YouTube')}${chalk.green('[MP4 URL]')}\n${chalk.green('┃')}${chalk.red('[')}${chalk.green('3')}${chalk.red(']')}${chalk.white('Baixar Playlist YouTube')}${chalk.green('[MP3 URL]')}\n${chalk.green('┃')}${chalk.red('[')}${chalk.green('4')}${chalk.red(']')}${chalk.white('Baixar Playlist YouTube')}${chalk.green('[MP4 URL]')}\n${chalk.green('┃')}${chalk.red('[')}${chalk.green('5')}${chalk.red(']')}${chalk.white('Digite Nome Da Musica')}${chalk.green('[MP3]')}\n${chalk.green('┃')}${chalk.red('[')}${chalk.green('6')}${chalk.red(']')}${chalk.white('Digite Nome Da Musica')}${chalk.green('[MP4]')}\n${chalk.green('┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛')}`)
 	const pilihan = readlineSync.questionInt(chalk.white("Digite Numero Que deseja escolher:"))
 	if (pilihan > 6) return console.log('Existem apenas 1-6 opções!!!')
