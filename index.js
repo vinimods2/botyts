@@ -182,9 +182,11 @@ const patch = '/sdcard/yt-downloader'
 					quality: 'highestaudio'
 				});
 				const playInfo = await ytdl.getInfo(videoResult.url)
+				const str = `${playInfo.videoDetails.title}`;
+				const noSpecialCharacters = str.replace(/^a-zA-Z0-9 /g, '');
 				ffmpeg(stream)
 					.audioBitrate(128)
-					.save(`/sdcard/yt-downloader/${playInfo.videoDetails.videoId}.mp3`)
+					.save(`/sdcard/yt-downloader/${noSpecialCharacters}.mp3`)
 					.on('end', () => {
 						console.log(chalk.green('download concluído!'))
 					});
@@ -208,9 +210,11 @@ const patch = '/sdcard/yt-downloader'
 					quality: 'highestaudio'
 				});
 				const playInfo = await ytdl.getInfo(videoResult.url)
+				const str = `${playInfo.videoDetails.title}`;
+				const noSpecialCharacters = str.replace(/^a-zA-Z0-9 /g, '');
 				ffmpeg(stream)
 					.audioBitrate(128)
-					.save(`/sdcard/yt-downloader/${playInfo.videoDetails.videoId}.mp3`)
+					.save(`/sdcard/yt-downloader/${noSpecialCharacters}.mp3`)
 					.on('end', () => {
 						console.log(chalk.green('download concluído!'))
 					});
@@ -235,7 +239,9 @@ if (fs.existsSync(`${patch}`)) {
 				const video = await ytdl.getInfo(videoResult.url)
 				const response = await fetch(video.formats[0].url);
 				const buffer = await response.buffer();
-				await fs.writeFile(`/sdcard/yt-downloader/${video.videoDetails.videoId}.mp4`, buffer, () =>
+				const str = `${video.videoDetails.title}`;
+				const noSpecialCharacters = str.replace(/^a-zA-Z0-9 /g, '');
+				await fs.writeFile(`/sdcard/yt-downloader/${noSpecialCharacters}.mp4`, buffer, () =>
 					console.log(chalk.green('finished downloading!')))
 			} else {
 				const linknya = readlineSync.question(chalk.yellow("- Masukkan query youtubenya: "))
@@ -256,7 +262,9 @@ if (fs.existsSync(`${patch}`)) {
 				const video = await ytdl.getInfo(videoResult.url)
 				const response = await fetch(video.formats[0].url);
 				const buffer = await response.buffer();
-				await fs.writeFile(`/sdcard/yt-downloader/${video.videoDetails.videoId}.mp4`, buffer, () =>
+				const str = `${video.videoDetails.title}`;
+	const noSpecialCharacters = str.replace(/^a-zA-Z0-9 /g, '');
+				await fs.writeFile(`/sdcard/yt-downloader/${noSpecialCharacters}.mp4`, buffer, () =>
 					console.log(chalk.green('download concluído!')))
 					process.exit();
 			}
