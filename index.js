@@ -163,111 +163,113 @@ const patch = '/sdcard/yt-downloader'
 	}
 	}
 	} else if (pilihan == '5') {
-			const linknya = readlineSync.question(chalk.white("Digite nome da musica: "))
-			if (fs.existsSync(`${patch}`)) {
-				console.log(chalk.white('\nO processo de download...\n\nA duração do processo depende da velocidade da internet e da duração que você deseja baixar\n\nO vídeo/áudio estará localizado na "pasta yt-downloader""'))
-				const playOptions = {
-					limit: 1,
-					gl: 'BR',
-					hl: 'pt'
-				}
-				const res = await ytsr(linknya, playOptions).catch(err => {
-					return client.reply(from, 'A consulta que você está procurando não foi encontrada', id)
-				})
-				const videoResult = res.items.filter(item => item.type === 'video')[0]
-				if (!videoResult) {
-					return client.reply(from, 'A consulta que você está procurando não foi encontrada', id)
-				}
-				let stream = await ytdl(videoResult.url, {
-					quality: 'highestaudio'
-				});
-				const playInfo = await ytdl.getInfo(videoResult.url)
-				const str = `${playInfo.videoDetails.title}`;
-				const noSpecialCharacters = str.replace(/^a-zA-Z0-9 /g, '');
-				ffmpeg(stream)
-					.audioBitrate(128)
-					.save(`/sdcard/yt-downloader/${noSpecialCharacters}.mp3`)
-					.on('end', () => {
-						console.log(chalk.green('download concluído!'))
-					});
-			} else {
-				const linknya = readlineSync.question(chalk.yellow("Digite nome da musica: "))
-				fs.mkdir(`${patch}`)
-				console.log(chalk.white('\nNovamente o processo de download...\an\a duração do processo depende da velocidade da internet e da duração que você deseja baixar\n\nO vídeo/áudio estará localizado na pasta "yt-downloader"'))
-				const playOptions = {
-					limit: 1,
-					gl: 'BR',
-					hl: 'pt'
-				}
-				const res = await ytsr(linknya, playOptions).catch(err => {
-					return client.reply(from, 'A música que você está procurando não pode ser encontrada', id)
-				})
-				const videoResult = res.items.filter(item => item.type === 'video')[0]
-				if (!videoResult) {
-					return client.reply(from, 'A música que você estava procurando não foi encontrada', id)
-				}
-				let stream = await ytdl(videoResult.url, {
-					quality: 'highestaudio'
-				});
-				const playInfo = await ytdl.getInfo(videoResult.url)
-				const str = `${playInfo.videoDetails.title}`;
-				const noSpecialCharacters = str.replace(/^a-zA-Z0-9 /g, '');
-				ffmpeg(stream)
-					.audioBitrate(128)
-					.save(`/sdcard/yt-downloader/${noSpecialCharacters}.mp3`)
-					.on('end', () => {
-						console.log(chalk.green('download concluído!'))
-					});
-					process.exit();
-			}
-		} else if (pilihan == '6') {
-			const linknya = readlineSync.question(chalk.white("Qual nome do video: "))
-if (fs.existsSync(`${patch}`)) {
-				console.log(chalk.white('\nNovamente o processo de download...\an\a duração do processo depende da velocidade da internet e da duração que você deseja baixar\n\nO vídeo/áudio estará localizado na "pasta yt-downloader""'))
-				const playOptions = {
-					limit: 1,
-					gl: 'BR',
-					hl: 'pt'
-				}
-				const res = await ytsr(linknya, playOptions).catch(err => {
-					return client.reply(from, 'A consulta que você está procurando não foi encontrada', id)
-				})
-				const videoResult = res.items.filter(item => item.type === 'video')[0]
-				if (!videoResult) {
-					return client.reply(from, 'A consulta que você está procurando não foi encontrada', id)
-				}
-				const video = await ytdl.getInfo(videoResult.url)
-				const response = await fetch(video.formats[0].url);
-				const buffer = await response.buffer();
-				const str = `${video.videoDetails.title}`;
-				const noSpecialCharacters = str.replace(/^a-zA-Z0-9 /g, '');
-				await fs.writeFile(`/sdcard/yt-downloader/${noSpecialCharacters}.mp4`, buffer, () =>
-					console.log(chalk.green('finished downloading!')))
-			} else {
-				const linknya = readlineSync.question(chalk.yellow("- Masukkan query youtubenya: "))
-				fs.mkdir(`${patch}`)
-				console.log(chalk.yellow('\nNovamente o processo de download...\an\a duração do processo depende da velocidade da internet e da duração que você deseja baixar\n\nO vídeo/áudio estará localizado na "pasta yt-downloader""'))
-				const playOptions = {
-					limit: 1,
-					gl: 'BR',
-					hl: 'pt'
-				}
-				const res = await ytsr(linknya, playOptions).catch(err => {
-					return client.reply(from, 'A consulta que você está procurando não foi encontrada', id)
-				})
-				const videoResult = res.items.filter(item => item.type === 'video')[0]
-				if (!videoResult) {
-					return client.reply(from, 'A consulta que você está procurando não foi encontrada', id)
-				}
-				const video = await ytdl.getInfo(videoResult.url)
-				const response = await fetch(video.formats[0].url);
-				const buffer = await response.buffer();
-				const str = `${video.videoDetails.title}`;
+	const linknya = readlineSync.question(chalk.white("Pesquise O Nome Da Música: "))
+	if (fs.existsSync(`${patch}`)) {
+	console.log(chalk.white('\nO processo de download!\nA duração do processo depende da velocidade da internet\nduração que você deseja baixar\nO vídeo/áudio estará localizado na "pasta yt-downloader"'))
+	const playOptions = {
+	limit: 1,
+	gl: 'BR',
+	hl: 'pt'
+	}
+	const res = await ytsr(linknya, playOptions).catch(err => {
+	return client.reply(from, 'A consulta que você está procurando não foi encontrada', id)
+	})
+	const videoResult = res.items.filter(item => item.type === 'video')[0]
+	if (!videoResult) {
+	return client.reply(from, 'A consulta que você está procurando não foi encontrada', id)
+	}
+	let stream = await ytdl(videoResult.url, {
+	quality: 'highestaudio'
+	});
+	const playInfo = await ytdl.getInfo(videoResult.url)
+	const str = `${playInfo.videoDetails.title}`;
 	const noSpecialCharacters = str.replace(/^a-zA-Z0-9 /g, '');
-				await fs.writeFile(`/sdcard/yt-downloader/${noSpecialCharacters}.mp4`, buffer, () =>
-					console.log(chalk.green('download concluído!')))
-					process.exit();
-			}
+	ffmpeg(stream)
+	.audioBitrate(128)
+	.save(`/sdcard/yt-downloader/${noSpecialCharacters}.mp3`)
+	.on('end', () => {
+	console.log(chalk.green(`DOWNLOAD CONCLUÍDO!`))
+	process.exit();
+	});
+	} else {
+	const linknya = readlineSync.question(chalk.white("Pesquise O Nome Da Música: "))
+	fs.mkdir(`${patch}`)
+	console.log(chalk.white('\nO processo de download!\nA duração do processo depende da velocidade da internet\nduração que você deseja baixar\nO vídeo/áudio estará localizado na "pasta yt-downloader"'))
+	const playOptions = {
+	limit: 1,
+	gl: 'BR',
+	hl: 'pt'
+	}
+	const res = await ytsr(linknya, playOptions).catch(err => {
+	return client.reply(from, 'A música que você está procurando não pode ser encontrada', id)
+	})
+	const videoResult = res.items.filter(item => item.type === 'video')[0]
+	if (!videoResult) {
+	return client.reply(from, 'A música que você está procurando não pode ser encontrada', id)
+	}
+	let stream = await ytdl(videoResult.url, {
+	quality: 'highestaudio'
+	});
+	const playInfo = await ytdl.getInfo(videoResult.url)
+	const str = `${playInfo.videoDetails.title}`;
+	const noSpecialCharacters = str.replace(/^a-zA-Z0-9 /g, '');
+	ffmpeg(stream)
+	.audioBitrate(128)
+	.save(`/sdcard/yt-downloader/${noSpecialCharacters}.mp3`)
+	.on('end', () => {
+	console.log(chalk.green(`DOWNLOAD CONCLUÍDO!`))
+	process.exit();
+	});
+	}
+	} else if (pilihan == '6') {
+	const linknya = readlineSync.question(chalk.white("Pesquise O Nome Da Música: "))
+	if (fs.existsSync(`${patch}`)) {
+	console.log(chalk.white('\nO processo de download!\nA duração do processo depende da velocidade da internet\nduração que você deseja baixar\nO vídeo/áudio estará localizado na "pasta yt-downloader"'))
+	const playOptions = {
+	limit: 1,
+	gl: 'BR',
+	hl: 'pt'
+	}
+	const res = await ytsr(linknya, playOptions).catch(err => {
+	return client.reply(from, 'A consulta que você está procurando não foi encontrada', id)
+	})
+	const videoResult = res.items.filter(item => item.type === 'video')[0]
+	if (!videoResult) {
+	return client.reply(from, 'A consulta que você está procurando não foi encontrada', id)
+	}
+	const video = await ytdl.getInfo(videoResult.url)
+	const response = await fetch(video.formats[0].url);
+	const buffer = await response.buffer();
+	const str = `${video.videoDetails.title}`;
+	const noSpecialCharacters = str.replace(/^a-zA-Z0-9 /g, '');
+	await fs.writeFile(`/sdcard/yt-downloader/${noSpecialCharacters}.mp4`, buffer, () =>
+	console.log(chalk.green(`DOWNLOAD CONCLUÍDO!`)))
+	process.exit();
+	} else {
+	const linknya = readlineSync.question(chalk.yellow("Pesquise O Nome Da Música: "))
+	fs.mkdir(`${patch}`)
+	console.log(chalk.white('\nO processo de download!\nA duração do processo depende da velocidade da internet\nduração que você deseja baixar\nO vídeo/áudio estará localizado na "pasta yt-downloader"'))
+	const playOptions = {
+	limit: 1,
+	gl: 'BR',
+	hl: 'pt'
+	}
+	const res = await ytsr(linknya, playOptions).catch(err => {
+	return client.reply(from, 'A consulta que você estava procurando não foi encontrada', id)
+	})
+	const videoResult = res.items.filter(item => item.type === 'video')[0]
+	if (!videoResult) {
+	return client.reply(from, 'A consulta que você está procurando não foi encontrada', id)
+	}
+	const video = await ytdl.getInfo(videoResult.url)
+	const response = await fetch(video.formats[0].url);
+	const buffer = await response.buffer();
+	const str = `${video.videoDetails.title}`;
+	const noSpecialCharacters = str.replace(/^a-zA-Z0-9 /g, '');
+	await fs.writeFile(`/sdcard/yt-downloader/${noSpecialCharacters}.mp4`, buffer, () =>
+	console.log(chalk.green(`DOWNLOAD CONCLUÍDO!`)))
+	process.exit();
+	}
 	} else {
 	console.log(chalk.white('A escolha é apenas 1 - 6'))
 	}
